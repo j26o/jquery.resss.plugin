@@ -12,12 +12,13 @@
 
 (function($){
 	var settings = {
-      duration:		'3000',
+      interval:		'3000',
       easing: 		'easeOutBack',
-      align: 		'top',
+      valign: 		'middle',
       controls: 	false,
       controlsCont: null,
-      totalPg:  	null
+      totalPg:  	null,
+      allimg: 		null
     };
     var _this;
 	var methods = {
@@ -27,9 +28,13 @@
 			 _this = $(this);
 			 var $this = $(this),
 			     data = $this.data('resss');
-			     // initial settings
-			     
-			     methods.addListeners();
+				
+				// initial settings
+				settings.allimg = _this.find('img');
+				settings.totalPg = settings.allimg.length;
+
+				methods.positionImages();
+			    methods.addListeners();
 			     
 			 if (!data) {
 			   $(this).data('resss', {
@@ -40,12 +45,30 @@
 		},
 		addListeners : function(){
 			// add swipe listeners
-			_this.swipe({
-				swipe:function(event, direction, distance, duration, fingerCount) {methods.swipe(event, direction, distance, duration, fingerCount)}
-			});
+			_this.swipe({swipe:function(event, direction, distance, duration, fingerCount) {methods.swipe(event, direction, distance, duration, fingerCount)} });
+
+			$(window).bind({ 'resize.resss': function(e){methods.reposition();} });
 		},
 		swipe : function(event, direction, distance, duration, fingerCount){
 			console.log(direction);
+		},
+		positionImages : function(){
+			switch (settings.valign) {
+				case 'top':
+					console.log('top');
+					break;
+				case 'middle':
+					settings.allimg.each(function(i){
+						var t = ($(this).height() - _this.height()) / 2;
+						$(this).css({top:-t});
+					});
+					break;
+				case 'bottom':
+					console.log('bottom');
+					break;
+				default:
+					console.log('default');
+			} 
 		},
 		destroy : function( ) {
 
@@ -60,10 +83,9 @@
 			});
 
 		},
-		reposition : function( ) {  },
-		show : function( ) { },
-		hide : function( ) {  },
-		update : function( content ) { }
+		reposition : function( ) {
+			methods.positionImages();
+		}
 	};
 
 	$.fn.resss = function(method) {
