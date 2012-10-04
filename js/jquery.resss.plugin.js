@@ -32,6 +32,9 @@
 				// initial settings
 				settings.allimg = _this.find('img');
 				settings.totalPg = settings.allimg.length;
+				console.log(settings.controls);
+
+				if(settings.controls) methods.initControls();
 
 				methods.positionImages();
 			    methods.addListeners();
@@ -43,11 +46,22 @@
 			 }
 			});
 		},
+		initControls : function(){
+
+			var cc = $('<div class="controls" />');
+			_this.append(cc);
+			for (var i = 0; i < settings.totalPg; i++ ){
+				cc.append($('<div />'));
+			}
+		},
 		addListeners : function(){
 			// add swipe listeners
 			_this.swipe({swipe:function(event, direction, distance, duration, fingerCount) {methods.swipe(event, direction, distance, duration, fingerCount)} });
 
 			$(window).bind({ 'resize.resss': function(e){methods.reposition();} });
+		},
+		reposition : function( ) {
+			methods.positionImages();
 		},
 		swipe : function(event, direction, distance, duration, fingerCount){
 			console.log(direction);
@@ -82,9 +96,6 @@
 				$this.removeData('resss');
 			});
 
-		},
-		reposition : function( ) {
-			methods.positionImages();
 		}
 	};
 
