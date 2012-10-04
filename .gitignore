@@ -74,17 +74,3 @@ $RECYCLE.BIN/
 Icon?
 ehthumbs.db
 Thumbs.db
-
-#junebaldovino ignores
-images/
-fonts/
-works-archive/
-*.jpg
-*.gif
-*.png
-*.mp3
-*.mp4
-*.flv
-*.ogg
-*.webm
-*.pdf
