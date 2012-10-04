@@ -1,0 +1,17 @@
+/* the humans responsible & colophon */
+/* humanstxt.org */
+
+
+/* TEAM */
+  <your title>: <your name>
+  Site:junebaldovino.com
+  Twitter:@wtfroland
+  Location:Singapore
+
+/* THANKS */
+  
+
+/* SITE */
+  Standards: HTML5, CSS3
+  Components: Modernizr, jQuery, Three.js
+  Software: Sublime Text2
