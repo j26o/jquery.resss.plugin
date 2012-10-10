@@ -9,3 +9,4 @@ This slideshow uses [mattbryson / TouchSwipe-Jquery-Plugin](https://github.com/m
 * Source: [https://github.com/junebaldovino](hhttps://github.com/junebaldovino/jquery.resss.plugin)
 * Homepage: [http://junebaldovino.com](http://junebaldovino.com)
 * Twitter: [@wtfroland](http://twitter.com/wtfroland)
+
