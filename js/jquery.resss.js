@@ -77,7 +77,7 @@
 			_this.swipe({swipe:function(event, direction, distance, duration, fingerCount) {methods.swipe(event, direction, distance, duration, fingerCount)} });
 
 			// add window resize listeners
-			$(window).bind({ 'resize.resss': function(e){methods.reposition();} });
+			$(window).bind({ 'resize.resss': function(e){methods.onresize();} });
 
 			// add controls listener
 			if(settings.controls){
@@ -157,7 +157,7 @@
 		onIdle : function() {
 			methods.slideNext();
 		},
-		reposition : function( ) {
+		onresize : function( ) {
 			methods.positionImages();
 			if(settings.autoplay) methods.ssplay();
 		},
@@ -172,10 +172,15 @@
 					break;
 				case 'middle':
 					settings.allimgs.each(function(i){
-						var l = $(this);
+						var l = $(this),
+						img = l.find('img');
+						
+						if(img.height() < _this.height()) img.removeClass().addClass('fheight');
+						else img.removeClass().addClass('fwidth');
+
 						l.css({display:'block'});
-						var t = (l.find('img').height() - _this.height()) / 2;
-						$(this).find('img').css({top:-t});
+						var t = (img.height() - _this.height()) / 2;
+						img.css({top:-t});
 						methods.resetImages();
 					});
 					break;
