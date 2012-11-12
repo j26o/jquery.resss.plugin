@@ -2,7 +2,7 @@
 A responsive jquery slideshow with touch and idle time features.
 
 ##Features
-This slideshow uses [mattbryson / TouchSwipe-Jquery-Plugin](https://github.com/mattbryson/TouchSwipe-Jquery-Plugin) and [Paul Irish's jquery-idletimer plugin](https://github.com/paulirish/jquery-idletimer/).
+This slideshow uses [mattbryson / TouchSwipe-Jquery-Plugin](https://github.com/mattbryson/TouchSwipe-Jquery-Plugin), [srobbin / Backstretch](https://github.com/srobbin/jquery-backstretch) and [Paul Irish's jquery-idletimer plugin](https://github.com/paulirish/jquery-idletimer/).
 
 
 ###Other Details
